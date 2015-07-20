@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MontecarloTisch
@@ -19,14 +12,12 @@ namespace MontecarloTisch
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Int32 curPos = 10;
-            Boolean[] personenBools = new bool[25];
-
-           
+            var curPos = 10;
+            var personenBools = new bool[25];
+            
             Int32 remaining;
             
-
-            Random rnd = new Random();
+            var rnd = new Random();
 
             do
             {
@@ -43,34 +34,31 @@ namespace MontecarloTisch
                 }
                 else
                 {
-                   curPos++;
+                    curPos++;
                 }
 
 
                 if (curPos < 0)
                 {
-                    curPos = personenBools.Length -1;
+                    curPos = personenBools.Length - 1;
                 }
-                else if (curPos > personenBools.Length-1)
+                else if (curPos > personenBools.Length - 1)
                 {
                     curPos = 0;
                 }
 
-               
 
-                foreach (Boolean person in personenBools)
+                foreach (var person in personenBools)
                 {
                     if (person)
                     {
                         remaining--;
                     }
                 }
-
             } while
                 (remaining != 0);
 
-            MessageBox.Show(curPos.ToString() + " bekommt als Letzter Kuchen");
-
+            MessageBox.Show(curPos + " bekommt als Letzter Kuchen");
         }
     }
 }
