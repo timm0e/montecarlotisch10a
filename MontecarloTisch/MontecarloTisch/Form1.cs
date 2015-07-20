@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 //Punkt von Person 0 = 1, nicht 0
@@ -62,7 +63,9 @@ namespace MontecarloTisch
             } while
                 (remaining != 0);
 
+            
             return curPos;
+            
         }
 
 
