@@ -1,34 +1,38 @@
 ﻿using System;
 using System.Windows.Forms;
 
+//Punkt von Person 0 = 1, nicht 0
+
 namespace MontecarloTisch
 {
     public partial class Form1 : Form
     {
+        readonly Random _rnd = new Random();
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private int Werkriegtdenkuchenalsletzter(int personenzahl, int startposition)
         {
-            var curPos = 10;
-            var personenBools = new bool[25];
-            
+            var curPos = startposition;
+            var personenBools = new bool[personenzahl];
+
             Int32 remaining;
+
             
-            var rnd = new Random();
 
             do
             {
-                remaining = 25;
+                remaining = personenzahl;
 
                 if (personenBools[curPos] == false)
                 {
                     personenBools[curPos] = true;
                 }
 
-                if (rnd.Next(2) == 0)
+                if (_rnd.Next(2) == 0)
                 {
                     curPos--;
                 }
@@ -58,7 +62,34 @@ namespace MontecarloTisch
             } while
                 (remaining != 0);
 
-            MessageBox.Show(curPos + " bekommt als Letzter Kuchen");
+            return curPos;
+        }
+
+
+        private void StartButton_Click(object sender, EventArgs e)
+        {
+            progressBar1.Value = 0;
+            chart1.Series[0].Points.Clear();
+
+            for (int i = 0; i < (int) Personen.Value; i++)
+            {
+                chart1.Series[0].Points.AddXY(i + 1, 0);
+            }
+
+            progressBar1.Maximum = (int) Wiederholungen.Value;
+
+            for (int i = 0; i < (int) Wiederholungen.Value; i++)
+            {
+                var loser = Werkriegtdenkuchenalsletzter((int) Personen.Value, (int) Startposition.Value);
+                chart1.Series[0].Points[loser].SetValueY(chart1.Series[0].Points[loser].YValues[0] + 1);
+                progressBar1.Value++;
+            }
+        }
+
+        private void zufallsButton_Click(object sender, EventArgs e)
+        {
+            
+            Startposition.Value = _rnd.Next((int) Personen.Value + 1);
         }
     }
 }
