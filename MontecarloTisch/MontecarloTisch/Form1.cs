@@ -21,7 +21,8 @@ namespace MontecarloTisch
         {
             Int32 curPos = 10;
             Boolean[] personenBools = new bool[25];
-            
+
+           
             Int32 remaining;
             
 
@@ -36,13 +37,13 @@ namespace MontecarloTisch
                     personenBools[curPos] = true;
                 }
 
-                if (rnd.Next(1) == 0)
+                if (rnd.Next(2) == 0)
                 {
                     curPos--;
                 }
                 else
                 {
-                    curPos++;
+                   curPos++;
                 }
 
 
