@@ -104,5 +104,10 @@ namespace MontecarloTisch
             
             Startposition.Value = _rnd.Next((int) Personen.Value + 1);
         }
+
+        private void Wiederholungen_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
