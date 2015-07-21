@@ -24,14 +24,25 @@ namespace MontecarloTisch
 
             
 
-            do
+            while (true)
             {
                 remaining = personenzahl;
 
-                if (personenBools[curPos] == false)
+                foreach (var person in personenBools)
                 {
-                    personenBools[curPos] = true;
+                    if (person)
+                    {
+                        remaining--;
+                    }
                 }
+
+                if (remaining == 0)
+                {
+                    break;
+                }
+
+               
+                
 
                 if (_rnd.Next(2) == 0)
                 {
@@ -53,15 +64,15 @@ namespace MontecarloTisch
                 }
 
 
-                foreach (var person in personenBools)
+                if (personenBools[curPos] == false)
                 {
-                    if (person)
-                    {
-                        remaining--;
-                    }
+                    personenBools[curPos] = true;
                 }
-            } while
-                (remaining != 0);
+               
+
+               
+
+            } 
 
             
             return curPos;
