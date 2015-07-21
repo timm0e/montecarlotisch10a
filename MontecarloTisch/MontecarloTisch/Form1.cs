@@ -16,7 +16,7 @@ namespace MontecarloTisch
 
         private int Werkriegtdenkuchenalsletzter(int personenzahl, int startposition)
         {
-            var curPos = startposition;
+            var curPos = startposition - 1;
             var personenBools = new bool[personenzahl];
 
             Int32 remaining;
