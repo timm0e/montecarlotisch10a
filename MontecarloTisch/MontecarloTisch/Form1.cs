@@ -101,13 +101,9 @@ namespace MontecarloTisch
 
         private void zufallsButton_Click(object sender, EventArgs e)
         {
-            
             Startposition.Value = _rnd.Next((int) Personen.Value + 1);
         }
 
-        private void Wiederholungen_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

@@ -73,7 +73,6 @@
             0,
             0,
             0});
-            this.Wiederholungen.ValueChanged += new System.EventHandler(this.Wiederholungen_ValueChanged);
             // 
             // wdhLabel
             // 
