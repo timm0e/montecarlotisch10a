@@ -1,31 +1,26 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Windows.Forms;
-
 
 namespace MontecarloTisch
 {
     public partial class Form1 : Form
     {
-        readonly Random _rnd = new Random();
+        private readonly Random _rnd = new Random();
+
         public Form1()
         {
             InitializeComponent();
         }
-
 
         private int Werkriegtdenkuchenalsletzter(int personenzahl, int startposition)
         {
             var curPos = startposition - 1;
             var personenBools = new bool[personenzahl];
 
-            Int32 remaining;
-
-            
 
             while (true)
             {
-                remaining = personenzahl;
+                var remaining = personenzahl;
 
                 foreach (var person in personenBools)
                 {
@@ -40,8 +35,6 @@ namespace MontecarloTisch
                     break;
                 }
 
-               
-                
 
                 if (_rnd.Next(2) == 0)
                 {
@@ -67,31 +60,29 @@ namespace MontecarloTisch
                 {
                     personenBools[curPos] = true;
                 }
-               
+            }
 
-               
 
-            } 
-
-            
             return curPos;
-            
         }
-
 
         private void StartButton_Click(object sender, EventArgs e)
         {
+            if ((int) Startposition.Value > (int) Personen.Value)
+            {
+                Startposition.Value = Personen.Value;
+            }
             progressBar1.Value = 0;
             chart1.Series[0].Points.Clear();
 
-            for (int i = 0; i < (int) Personen.Value; i++)
+            for (var i = 0; i < (int) Personen.Value; i++)
             {
                 chart1.Series[0].Points.AddXY(i + 1, 0);
             }
 
             progressBar1.Maximum = (int) Wiederholungen.Value;
 
-            for (int i = 0; i < (int) Wiederholungen.Value; i++)
+            for (var i = 0; i < (int) Wiederholungen.Value; i++)
             {
                 var loser = Werkriegtdenkuchenalsletzter((int) Personen.Value, (int) Startposition.Value);
                 chart1.Series[0].Points[loser].SetValueY(chart1.Series[0].Points[loser].YValues[0] + 1);
@@ -103,7 +94,5 @@ namespace MontecarloTisch
         {
             Startposition.Value = _rnd.Next((int) Personen.Value + 1);
         }
-
-        
     }
 }

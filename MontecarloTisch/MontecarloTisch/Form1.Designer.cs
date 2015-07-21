@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.StartButton = new System.Windows.Forms.Button();
             this.Wiederholungen = new System.Windows.Forms.NumericUpDown();
             this.wdhLabel = new System.Windows.Forms.Label();
@@ -137,16 +137,16 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Location = new System.Drawing.Point(12, 80);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.IsValueShownAsLabel = true;
-            series2.IsVisibleInLegend = false;
-            series2.Name = "Series1";
-            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            this.chart1.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.IsValueShownAsLabel = true;
+            series1.IsVisibleInLegend = false;
+            series1.Name = "Series1";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(719, 474);
             this.chart1.TabIndex = 8;
             this.chart1.Text = "chart1";
@@ -184,6 +184,7 @@
             this.Controls.Add(this.wdhLabel);
             this.Controls.Add(this.Wiederholungen);
             this.Controls.Add(this.StartButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "Montecarlo-Simulation: Wer bekommt den Kuchen als Letzter";
             ((System.ComponentModel.ISupportInitialize)(this.Wiederholungen)).EndInit();
