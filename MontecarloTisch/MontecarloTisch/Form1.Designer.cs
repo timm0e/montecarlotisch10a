@@ -40,6 +40,7 @@
             this.zufallsButton = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Wiederholungen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Personen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Startposition)).BeginInit();
@@ -158,11 +159,22 @@
             this.progressBar1.Size = new System.Drawing.Size(716, 23);
             this.progressBar1.TabIndex = 9;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label3.Location = new System.Drawing.Point(701, 560);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "by Tim";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(743, 566);
+            this.ClientSize = new System.Drawing.Size(743, 578);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.zufallsButton);
@@ -196,6 +208,7 @@
         private System.Windows.Forms.Button zufallsButton;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label label3;
 
     }
 }
